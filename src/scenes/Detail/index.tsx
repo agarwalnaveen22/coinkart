@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {ScrollView, View} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RouteProp} from '@react-navigation/native';
 import {inject, observer} from 'mobx-react';
@@ -45,7 +45,7 @@ const DetailScene = ({store, navigation, route}: Props) => {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header
         title="Details"
         navigation={navigation}
@@ -77,7 +77,7 @@ const DetailScene = ({store, navigation, route}: Props) => {
           disabled={quanity === ''}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

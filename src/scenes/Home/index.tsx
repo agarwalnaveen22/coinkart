@@ -1,5 +1,11 @@
 import React, {useCallback, useState} from 'react';
-import {FlatList, ListRenderItem, TouchableOpacity, View} from 'react-native';
+import {
+  FlatList,
+  ListRenderItem,
+  SafeAreaView,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {inject, observer} from 'mobx-react';
 
@@ -60,7 +66,7 @@ const HomeScene = ({store, navigation}: Props) => {
     return unsubscribe;
   }, [coinsListStore, navigation]);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header
         title="List"
         showBack={false}
@@ -72,6 +78,7 @@ const HomeScene = ({store, navigation}: Props) => {
         <InputBox
           onChangeText={filterCoins}
           placeholder="Type here to search"
+          style={styles.searchBox}
         />
       </View>
       <View style={styles.body}>
@@ -88,7 +95,7 @@ const HomeScene = ({store, navigation}: Props) => {
           keyExtractor={({id}) => id}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

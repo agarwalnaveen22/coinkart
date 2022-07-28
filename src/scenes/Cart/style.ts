@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
   fieldTitle: {
     fontWeight: 'bold',
   },
+  noCartText: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default styles;

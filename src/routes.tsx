@@ -2,12 +2,12 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {Home, Detail, Cart} from './scenes';
-import {CoinData} from 'store/CoinsListStore';
+import {CoinDataType} from 'store/CoinsListStore';
 
 export type RootStackParamList = {
   Home: undefined;
   Detail: {
-    data: CoinData;
+    data: CoinDataType;
   };
   Cart: undefined;
 };

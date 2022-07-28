@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {FlatList, ListRenderItem, View} from 'react-native';
+import {FlatList, ListRenderItem, SafeAreaView, View} from 'react-native';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {inject, observer} from 'mobx-react';
 
@@ -48,7 +48,7 @@ const CartScene = ({store, navigation}: Props) => {
     return <Separator />;
   }, []);
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header
         title="Cart"
         showBack={true}
@@ -56,14 +56,20 @@ const CartScene = ({store, navigation}: Props) => {
         quantity={coinsCartStore.cart.length}
       />
       <View style={styles.body}>
-        <FlatList
-          data={coinsCartStore.cart}
-          renderItem={renderList}
-          ItemSeparatorComponent={itemSeparator}
-          keyExtractor={({id}) => id}
-        />
+        {coinsCartStore.cart.length > 0 ? (
+          <FlatList
+            data={coinsCartStore.cart}
+            renderItem={renderList}
+            ItemSeparatorComponent={itemSeparator}
+            keyExtractor={({id}) => id}
+          />
+        ) : (
+          <View style={styles.noCartText}>
+            <Label text={'No items found in cart'} />
+          </View>
+        )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

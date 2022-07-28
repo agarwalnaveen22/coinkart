@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  searchBox: {
+    width: '100%',
+    height: '100%',
+  },
 });
 
 export default styles;
